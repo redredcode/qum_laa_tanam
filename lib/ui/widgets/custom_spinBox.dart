@@ -98,6 +98,7 @@ class _CustomSpinBoxState extends State<CustomSpinBox> {
               onSubmitted: _onFieldSubmitted,
             ),
           ),
+
           // Up and down arrow buttons
           Expanded(
             flex: 1, // Less space for the buttons

@@ -8,35 +8,52 @@ class TaskInputRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row( mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        const SizedBox(
-          width: 30,
+
+        // Prayer name column
+        Column(
+          children: [
+            Text(
+              label,
+              style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w500),
+            ),
+          ],
         ),
-        Text(
-          label,
-          style: Theme.of(context).textTheme.titleLarge,
+        const SizedBox(width: 30),
+        // arrow icon column
+        const Column(
+          children: [
+            Icon(
+              //Icons.arrow_right_alt_rounded,
+                Iconsax.arrow_square_right3
+            ),
+          ],
         ),
-        const SizedBox(
-          width: 20,
-        ),
-        const Icon(
-          //Icons.arrow_right_alt_rounded,
-            Iconsax.arrow_square_right3
-        ),
-        const SizedBox(
-          width: 10,
-        ),
-        SizedBox(
-          width: 80,
-          height: 45,
-          child: CustomSpinBox(min: 0, max: 23, initialValue: 0, onChanged: (value){})
-        ),
-        SizedBox(
-          width: 70,
-          height: 45,
-          child: CustomSpinBox(min: 0, max: 23, initialValue: 0, onChanged: (value){})
-        ),
+        const SizedBox(width: 10),
+        Column(children: [
+          Row(
+            children: [
+              SizedBox(
+                width: 80,
+                height: 45,
+                child: CustomSpinBox(
+                  min: 0,
+                  max: 23,
+                  initialValue: 0,
+                  onChanged: (value) {},
+                ),
+              ),
+              const SizedBox(width: 4),
+              SizedBox(
+                  width: 70,
+                  height: 45,
+                  child: CustomSpinBox(min: 0, max: 23, initialValue: 0, onChanged: (value){})
+              ),
+            ],
+          )
+        ],),
       ],
     );
   }

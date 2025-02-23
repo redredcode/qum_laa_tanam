@@ -26,6 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //backgroundColor: Colors.blueGrey.shade900,
       appBar: AppBar(
         //leading: Icon(Iconsax.moon5),
         title: const Row(
@@ -54,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
         centerTitle: true,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(26.0),
+        padding: const EdgeInsets.symmetric(horizontal: 26.0),
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -67,35 +68,44 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                 ),
               ),
-              // Container(
-              //   color: Colors.grey.shade300,
-              //   width: 300,
-              //   height: 200,
-              // ),
-              const SizedBox(height: 20),
-              const TaskInputRow(label: 'Qiyam'),
-              const SizedBox(height: 5),
-              const TaskInputRow(label: 'Study'),
-              const SizedBox(height: 5),
-              const TaskInputRow(label: 'Suhoor'),
-              const SizedBox(height: 5),
-              OutlinedButton(
-                style: OutlinedButton.styleFrom(
-                    side: const BorderSide(
-                      color: Colors.grey,
+              const SizedBox(height: 10),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                decoration: BoxDecoration(
+                  color: Colors.grey.shade300,
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const SizedBox(height: 20),
+                    const TaskInputRow(label: 'Qiyam'),
+                    const SizedBox(height: 5),
+                    const TaskInputRow(label: 'Study'),
+                    const SizedBox(height: 5),
+                    const TaskInputRow(label: 'Suhoor'),
+                    const SizedBox(height: 5),
+                    OutlinedButton(
+                      style: OutlinedButton.styleFrom(
+                          side: const BorderSide(
+                            color: Colors.grey,
+                          ),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8))),
+                      onPressed: () {},
+                      child: const Text(
+                        'Add another task',
+                        style: TextStyle(color: Colors.grey),
+                      ),
                     ),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8))),
-                onPressed: () {},
-                child: const Text(
-                  'Add another task',
-                  style: TextStyle(color: Colors.grey),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                  ],
                 ),
               ),
-              const SizedBox(
-                height: 10,
-              ),
 
+              const SizedBox(height: 10),
               Row(
                 children: [
                   const Text('Time needed to \nfully wake up'),
@@ -103,9 +113,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     width: 25,
                   ),
                   const Icon(Iconsax.arrow_square_right3),
-                  const SizedBox(
-                    width: 25,
-                  ),
+                  const SizedBox(width: 25),
                   SizedBox(
                     width: 100,
                     height: 35,
@@ -130,9 +138,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 5,
-              ),
+              const SizedBox(height: 5),
 
               // the info icon
               const Row(
@@ -144,15 +150,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 10,
-              ),
+              const SizedBox(height: 10),
               const Divider(
                 color: Colors.grey,
               ),
-              const SizedBox(
-                height: 5,
-              ),
+              const SizedBox(height: 5),
               const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
