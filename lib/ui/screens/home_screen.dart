@@ -31,9 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
         title: const Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(
-              width: 20,
-            ),
+            SizedBox(width: 20),
             Icon(Iconsax.moon5),
             SizedBox(
               width: 5,
@@ -74,21 +72,13 @@ class _HomeScreenState extends State<HomeScreen> {
               //   width: 300,
               //   height: 200,
               // ),
-              const SizedBox(
-                height: 20,
-              ),
+              const SizedBox(height: 20),
               const TaskInputRow(label: 'Qiyam'),
-              const SizedBox(
-                height: 5,
-              ),
+              const SizedBox(height: 5),
               const TaskInputRow(label: 'Study'),
-              const SizedBox(
-                height: 5,
-              ),
+              const SizedBox(height: 5),
               const TaskInputRow(label: 'Suhoor'),
-              const SizedBox(
-                height: 5,
-              ),
+              const SizedBox(height: 5),
               OutlinedButton(
                 style: OutlinedButton.styleFrom(
                     side: const BorderSide(
