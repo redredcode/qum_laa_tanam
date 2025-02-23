@@ -55,19 +55,19 @@ class _CustomSpinBoxState extends State<CustomSpinBox> {
     }
   }
 
-  void _onFieldSubmitted(String value) {
-    final parsedValue = double.tryParse(value);
-    if (parsedValue != null &&
-        parsedValue >= widget.min &&
-        parsedValue <= widget.max) {
-      setState(() {
-        _currentValue = parsedValue;
-      });
-      widget.onChanged(_currentValue);
-    } else {
-      _controller.text = _formatValue(_currentValue); // Reset to valid value
-    }
-  }
+  // void _onFieldSubmitted(String value) {
+  //   final parsedValue = double.tryParse(value);
+  //   if (parsedValue != null &&
+  //       parsedValue >= widget.min &&
+  //       parsedValue <= widget.max) {
+  //     setState(() {
+  //       _currentValue = parsedValue;
+  //     });
+  //     widget.onChanged(_currentValue);
+  //   } else {
+  //     _controller.text = _formatValue(_currentValue); // Reset to valid value
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -95,7 +95,7 @@ class _CustomSpinBoxState extends State<CustomSpinBox> {
                 contentPadding: EdgeInsets.symmetric(vertical: 8), // Padding inside text field
               ),
               keyboardType: TextInputType.number,
-              onSubmitted: _onFieldSubmitted,
+              //onSubmitted: _onFieldSubmitted,
             ),
           ),
 
