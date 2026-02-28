@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:qum_la_tanam/ui/screens/home_screen.dart';
+
+import 'features/ui/screens/routine_screen.dart';
 
 class QumLaTanam extends StatelessWidget{
   const QumLaTanam({super.key});
@@ -7,7 +8,7 @@ class QumLaTanam extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: HomeScreen(),
+      home: RoutineScreen(),
     );
   }
 }

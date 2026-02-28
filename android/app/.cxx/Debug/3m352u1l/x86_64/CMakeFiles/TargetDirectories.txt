@@ -1,0 +1,2 @@
+/Users/redwanahmedfahim/StudioProjects/qum_la_tanam/android/app/.cxx/Debug/3m352u1l/x86_64/CMakeFiles/edit_cache.dir
+/Users/redwanahmedfahim/StudioProjects/qum_la_tanam/android/app/.cxx/Debug/3m352u1l/x86_64/CMakeFiles/rebuild_cache.dir
