@@ -2,15 +2,40 @@ import 'dart:async';
 
 import 'package:get/get.dart';
 import '../models/task_model.dart';
+import '../services/alarm_service.dart';
+import '../services/background_service.dart';
 import '../services/countdown_service.dart';
 import '../services/time_calculator_service.dart';
 import '../services/sleep_cycle_service.dart';
+import '../services/voice_service.dart';
 
 class RoutineController extends GetxController {
 
   Timer? _timer;
   final remainingTime = Duration.zero.obs;
   final remainingText = "".obs;
+
+  final spokenFlags = <int, bool>{}.obs;
+  // prevents repeated voice spam
+
+  void checkVoiceAlert() {
+    final mins = remainingTime.value.inMinutes;
+
+    if (mins == 30 && spokenFlags[30] != true) {
+      VoiceService.speak("30 minutes left until Fajr");
+      spokenFlags[30] = true;
+    }
+
+    if (mins == 15 && spokenFlags[15] != true) {
+      VoiceService.speak("15 minutes left until Fajr");
+      spokenFlags[15] = true;
+    }
+
+    if (mins == 5 && spokenFlags[5] != true) {
+      VoiceService.speak("5 minutes left until Fajr");
+      spokenFlags[5] = true;
+    }
+  }
 
   void startCountdown() {
     _timer?.cancel();
@@ -20,6 +45,9 @@ class RoutineController extends GetxController {
 
       remainingTime.value = remaining;
       remainingText.value = CountdownService.formatDuration(remaining);
+
+      /// voice logic hook
+      checkVoiceAlert();
 
       // stop if fajr reached
       if (remaining.inSeconds <= 0) {
@@ -89,6 +117,44 @@ class RoutineController extends GetxController {
     task.enabled = !task.enabled;
     tasks.refresh();
     calculateRoutine();
+  }
+
+  // void checkVoiceAlert() {
+  //   final mins = remainingTime.value.inMinutes;
+  //
+  //   if (mins == 30) {
+  //     // voice: 30 minutes left
+  //   }
+  //   else if (mins == 15) {
+  //     // voice: 15 minutes left
+  //   }
+  //   else if (mins == 5) {
+  //     // voice: 5 minutes left
+  //   }
+  // }
+
+  /// alarm
+  void scheduleWakeUpAlarm() {
+    AlarmService.scheduleAlarm(
+      dateTime: wakeUpTime.value,
+      title: "Tahajjud Routine",
+      body: "Time to wake up for Tahajjud, study and Suhoor",
+    );
+  }
+
+  void cancelWakeUpAlarm() {
+    AlarmService.cancelAlarm();
+  }
+
+  /// Background activity
+  void startNightRoutineSystem() {
+    BackgroundService.start();
+    startCountdown();
+  }
+
+  void stopNightRoutineSystem() {
+    BackgroundService.stop();
+    _timer?.cancel();
   }
 
   @override
