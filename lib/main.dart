@@ -1,18 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_foreground_task/flutter_foreground_task.dart';
-import 'package:get/get.dart';
-import 'package:adhan/adhan.dart';
-import 'package:intl/intl.dart';
 import 'app.dart';
-import 'features/night_routine/controllers/timer_controller.dart';
 import 'features/night_routine/services/alarm_service.dart';
+import 'features/night_routine/services/location_service.dart';
 import 'features/night_routine/services/voice_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
-  // Global injection
-  Get.put(TimerController(), permanent: true);
+  await LocationService.instance.init(); // fetch location + city name
 
   FlutterForegroundTask.init(
     androidNotificationOptions: AndroidNotificationOptions(
