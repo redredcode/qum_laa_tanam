@@ -1,7 +1,7 @@
 import 'task_model.dart';
 
 class RoutineModel {
-  List<TaskModel> tasks;
+  List<RoutineTask> tasks;
   int bedExitBufferMinutes; // clumsiness time
   DateTime fajrTime;
 
