@@ -19,7 +19,7 @@ class AppColors {
   static const Color greenAccent = Color(0xFFD9F99D);
 
   // Border colors
-  static const Color borderPrimary = Color(0xFFD9D9D9);
+  static const Color borderPrimary = Color(0xFFA1A1AA);
   static const Color borderSecondary = Color(0xFFE6E6E6);
 
   // Error and validation colors
