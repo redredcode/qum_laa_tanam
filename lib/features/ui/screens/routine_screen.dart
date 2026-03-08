@@ -32,7 +32,7 @@ class _RoutineScreenState extends State<RoutineScreen> {
 
   // 3 sleep options: 3, 4, 5 cycles (270, 360, 450 min)
   static const List<int> _cycleOptions = [3, 4, 5];
-  static const int _idealSleepMinutes = 450; // 7.5h = 5 cycles
+  static const int _idealSleepMinutes = 360; // 6h = 4 cycles
 
   List<DateTime> get _sleepOptions => _cycleOptions
       .map((c) => _wakeUpTime.subtract(Duration(minutes: 90 * c)))
